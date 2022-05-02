@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.app {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.form-one {
+    background-color: lightgreen;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 40vh;
+    width: 30vw;
+}
+
+.form-one > * {
+    margin: 1rem;
+    padding: .5rem;
+}
+
+.form-one span {
+    color: red;
+}
