@@ -1,23 +1,27 @@
-import React from 'react'
-import { useForm } from 'react-hook-form'
+import React, { useState } from 'react'
+import LoginDetails from './components/LoginDetails'
+import PersonalDetails from './components/PersonalDetails'
+import Confirmation from './components/Confirmation'
 
 const App = () => {
-  const {register, formState: { errors }, handleSubmit} = useForm()
-  const onSubmit = (data) => {
-    console.log(JSON.stringify(data))
-  }
+    const [step, setStep] = useState(1)
+    const [data, setData] = useState({
+        username: '',
+        password: '',
+        age: ''
+    })
 
-  return (
-    <div className='app'>
-      <form className='form-one' onSubmit={handleSubmit(onSubmit)}>
-        <input {...register("username", { required: true })} type="text" placeholder="Username" />
-        {errors.username && <span>This field is required!</span>}
-        <input {...register("password", { required: true })} type="password" placeholder="Password" />
-        {errors.password && <span>This field is required!</span>}
-        <input type="submit" />
-      </form>
-    </div>
-  )
+    return (
+        <div className='app'>
+            {step === 1 && (<LoginDetails data = {data} setData = {setData} />)}
+            {step === 2 && (<PersonalDetails data = {data} setData = {setData} />)}
+            {step === 3 && (<Confirmation data = {data} />)}
+            <div className='prev-next'>
+                {step > 1 && <button className='prev' onClick={() => {setStep(step - 1)}}>Prev</button>}
+                {step < 3 && <button className='next' onClick={() => {setStep(step + 1)}}>Next</button>}
+            </div>
+        </div>
+    )
 }
 
 export default App
