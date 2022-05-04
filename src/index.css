@@ -1,18 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .app {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
     height: 100vh;
 }
 
-.login-details, .personal-details {
+form, .confirmation {
     background-color: lightgreen;
     display: flex;
     align-items: center;
@@ -21,30 +23,34 @@
     min-width: 30vw;
 }
 
-.login-details> *, .personal-details > * {
+form > *, .confirmation > * {
     margin: 1rem;
     padding: .5rem;
 }
 
-.login-details h1, .personal-details h1 {
+form h1, .confirmation h1 {
     color: brown;
 }
 
-.login-details span, .personal-details span {
+form span {
     margin: 0;
     padding: 0;
     color: red;
 }
 
-.prev-next {
-    background-color: lightgreen;
+form div {
     min-width: 30vw;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 1rem;
 }
 
-.prev-next button{
+form button {
     padding: .5rem;
+    border: 1px solid black;
+    background-color: yellow;
+}
+
+.confirmation p {
+    font-size: 1.2rem;
 }
