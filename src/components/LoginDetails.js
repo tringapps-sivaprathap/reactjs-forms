@@ -1,12 +1,7 @@
 import { useForm } from 'react-hook-form';
 
 const LoginDetails = ({ data, setData, step, setStep }) => {
-    const {register, watch, handleSubmit, formState: { errors }} = useForm({
-        defaultValues: {
-            // username: data.username,
-            // password: data.password
-        }
-    });
+    const {register, watch, handleSubmit, formState: { errors }} = useForm();
 
     const [username, password] = watch(['username', 'password']);
 
